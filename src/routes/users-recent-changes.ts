@@ -9,8 +9,8 @@ import {
   AppErrorCodes,
   BadRequestError,
   USERS_VALIDATION,
-} from '../utlis/errors';
-import subscribeClient from '../utlis/subscribe-client';
+} from '../utils/errors';
+import subscribeClient from '../utils/subscribe-client';
 
 function usersRecentChangesHandler(fastify: FastifyInstance) {
   return (connection: SocketStream) => {

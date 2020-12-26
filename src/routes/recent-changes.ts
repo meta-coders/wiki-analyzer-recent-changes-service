@@ -2,7 +2,7 @@ import { serialize } from 'class-transformer';
 import { FastifyInstance, FastifyPluginAsync } from 'fastify';
 import { SocketStream } from 'fastify-websocket';
 import { map } from 'rxjs/operators';
-import subscribeClient from '../utlis/subscribe-client';
+import subscribeClient from '../utils/subscribe-client';
 
 function recentChangesHandler(fastify: FastifyInstance) {
   return (connection: SocketStream) => {
