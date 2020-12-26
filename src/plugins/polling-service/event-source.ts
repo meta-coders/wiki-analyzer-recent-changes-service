@@ -76,7 +76,7 @@ export default class EventSource {
 
   private onMessageHandler(subscriber: Subscriber<WikiEvent>) {
     return (event: WebSocket.Data) => {
-      this.logger.info(
+      this.logger.debug(
         `[${EventSource.name}]: Incoming event: ${JSON.stringify(event)}`,
       );
       try {
