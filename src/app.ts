@@ -1,6 +1,7 @@
 import path from 'path';
 import AutoLoad, { AutoloadPluginOptions } from 'fastify-autoload';
 import { FastifyPluginAsync } from 'fastify';
+import WebsocketPlugin from 'fastify-websocket';
 
 export type AppOptions = {
   // Place your custom options for app below here.
@@ -10,9 +11,8 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts,
 ): Promise<void> => {
-  // Place here your custom code!
-
-  // Do not touch the following lines
+  // This register plugin for handling WebSocket routes
+  fastify.register(WebsocketPlugin);
 
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused

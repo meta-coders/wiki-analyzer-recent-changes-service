@@ -10,7 +10,7 @@
     "test": "npm run build:ts && tsc -p test/tsconfig.test.json && tap test/**/*.test.ts",
     "start": "npm run build:ts && fastify start -l info dist/app.js",
     "build:ts": "tsc",
-    "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\"  \"tsc -w\" \"fastify start -w -l info -P dist/app.js\"",
+    "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\"  \"tsc -w\" \"fastify start -w -P dist/app.js\"",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix"
   },
@@ -23,12 +23,16 @@
   },
   "homepage": "https://github.com/meta-coders/wiki-analyzer-recent-changes-service#readme",
   "dependencies": {
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
     "fastify": "^3.0.0",
     "fastify-autoload": "^3.0.2",
     "fastify-cli": "^2.6.0",
     "fastify-plugin": "^3.0.0",
     "fastify-websocket": "^2.0.11",
-    "rxjs": "^6.6.3"
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.3",
+    "ws": "^7.4.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.18",
