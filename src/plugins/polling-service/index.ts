@@ -13,7 +13,7 @@ export class PollingService {
   private readonly eventStream: Observable<WikiEvent>;
 
   constructor(url: string, logger: FastifyLoggerInstance) {
-    const href = new URL('ws://' + url + '/').href;
+    const href = new URL(`ws://${url}/recent-changes`).href;
     this.eventStream = new EventSource(href, logger).connect().pipe(
       retryWhen((errors) => {
         return errors.pipe(delay(RETRY_DELAY));

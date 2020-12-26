@@ -41,7 +41,7 @@ export default class EventSource {
         this.logger.info(
           `[${EventSource.name}]: Connecting to PollingService at ${this.url}`,
         );
-        const pollingService = new WebSocket(`${this.url}recent-changes`);
+        const pollingService = new WebSocket(this.url);
 
         pollingService.on('open', this.onOpenHandler());
         pollingService.on('error', this.onErrorHandler(subscriber));
