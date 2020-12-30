@@ -27,9 +27,11 @@ function usersRecentChangesHandler(fastify: FastifyInstance) {
             const users = plainToClass(User, JSON.parse(message), {
               excludeExtraneousValues: true,
             });
-            const errors = await fastify.validator().validate(users);
-            if (errors.length > 0) {
-              throw new BadRequestError(USERS_VALIDATION, errors);
+            const isValid = users.every(
+              (user) => typeof user.name === 'string' && user.name.length === 0,
+            );
+            if (!isValid) {
+              throw new BadRequestError(USERS_VALIDATION);
             }
             return users;
           },
