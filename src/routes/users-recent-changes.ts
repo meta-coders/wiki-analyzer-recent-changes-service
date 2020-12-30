@@ -28,7 +28,7 @@ function usersRecentChangesHandler(fastify: FastifyInstance) {
               excludeExtraneousValues: true,
             });
             const isValid = users.every(
-              (user) => typeof user.name === 'string' && user.name.length === 0,
+              (user) => typeof user.name === 'string' && user.name.length !== 0,
             );
             if (!isValid) {
               throw new BadRequestError(USERS_VALIDATION);
